@@ -6,11 +6,11 @@ import { useState, useCallback } from "react";
  * @returns Component
  */
 export default function Sidebar({ initialMenuItems = [] }) {
-  let [menuItems, setMenuItems] = useState(initialMenuItems); // TODO 2
+  let [menuItems, setMenuItems] = useState(initialMenuItems); //TODO 2: Maintain menu state
   let [newMenuItem, setNewMenuItem] = useState("");
   let [filter, setFilter] = useState("");
 
-  // TODO 3: Implement the add menu item function
+  // TODO 3: Implement the addMenuItem function
   const addMenuItem = useCallback(() => {
     if (newMenuItem.trim() !== "") {
       setMenuItems((prevItems) => [...prevItems, newMenuItem]);
@@ -18,7 +18,7 @@ export default function Sidebar({ initialMenuItems = [] }) {
     }
   }, [newMenuItem]);
 
-  //TODO 4: Filter menu items based on input (case-insensitive)
+  // TODO 4: Filter menu items based on input (case-insensitive)
   const filteredItems = menuItems.filter((item) =>
     item.toLowerCase().includes(filter.toLowerCase())
   );
@@ -44,7 +44,7 @@ export default function Sidebar({ initialMenuItems = [] }) {
       />
       <br />
 
-      {/*TODO  */}
+      {/* TODO : Render the menu list */}
       <ul>
         {filteredItems.map((item, index) => (
           <li key={index}>{item}</li>
